@@ -1,14 +1,21 @@
 from math import exp
 
 def calculate(x):
-    return 5 + 2 * exp(-0.5*x)
+    # Function here
+    return exp(x) / x
 
-upper = 9
-lower = 1
-parts = (upper - lower) * 100_000
+# Upper and lower limits
+upper = 5
+lower = 3
 
+# parts = (upper - lower) * 100000
+parts = (upper - lower) * 100000
+width = (upper - lower) / parts
+
+midpoint = lower + (width / 2)
 area = 0
-for i in range(parts):
-    area += calculate(i) * i / parts
+for _ in range(parts):
+    area += calculate(midpoint) * width
+    midpoint += width
 
-print(area.__round__(2))
+print(area.__round__(8))
